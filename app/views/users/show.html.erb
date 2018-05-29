@@ -1,0 +1,7 @@
+<h1>Welcome to your personal page (linkedin 2.0)</h1>
+ <h2> Your all-star name is <%= @user.name %> </h2>
+ <h2>Your user name is <%=  @user.username %>  </h2>
+
+ <% @user.languages.each do |l| %>
+ <li><%= l.lang_name%></li>
+ <% end  %>

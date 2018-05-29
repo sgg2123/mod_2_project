@@ -1,0 +1,6 @@
+<h1>Most Common Programming Languages of Today</h1>
+
+<% @languages.each do |language| %>
+<h3> <%= link_to language.lang_name, language %>  </h3>
+<ul><%= language.description %> </ul>
+<% end %>

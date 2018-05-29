@@ -1,0 +1,23 @@
+<h1>Sign Up Page</h1>
+
+<ul>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+    <li> <%= e %> </li>
+  <% end %>
+<% end %>
+</ul>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <!-- <%= f.label :password_confirmation  %>
+  <%= f.password_field :password_confirmation %> -->
+  <h3>If you already know what language you are interested in, or have exposure with, please select from the following:</h3>
+  <%= f.collection_check_boxes :language_ids, @languages, :id, :lang_name %>
+  <%= f.submit "Sign Up" %>
+<% end %>

@@ -1,0 +1,22 @@
+<h1> <%= @language.lang_name %> Page </h1>
+
+<h2>The language you selected was <%= @language.lang_name %></h2>
+
+<h3>History:  <%= @language.history %> </h3>
+<h3>Description: <%= @language.description %> </h3>
+<h3>Average Salary (est. 2016): $<%= @language.average_salary %> </h3>
+<h3>Jobs Available (est. 2016): <%= @language.jobs_available %> </h3>
+
+<h3>Resources to learn this language:  </h3>
+
+
+
+
+
+
+
+
+
+
+<h5>If you want to go back to see all languages</h5>
+<%= link_to "All languages", languages_path %>
