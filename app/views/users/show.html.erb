@@ -6,5 +6,7 @@
 
 <h2>Your Languages</h2>
  <% @user.languages.each do |l| %>
- <li><%= l.lang_name%></li>
+ <li><%= link_to l.lang_name, l%> <br>
+    <ul> <%= l.description %> </ul>
+   </li>
  <% end  %>

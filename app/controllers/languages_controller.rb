@@ -1,12 +1,7 @@
 class LanguagesController < ApplicationController
 
   def index
-    if logged_in?
-      @languages = current_user.languages
-    else
-      @languages = Language.where(user_id: nil)
-    end
-    # @languages = Language.all
+    @languages = Language.all
   end
 
   def new
