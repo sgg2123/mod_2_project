@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :languages
-  resources :companies
+  resources :jobs
 
   root 'users#welcome', as: "welcome"
 
@@ -11,7 +11,5 @@ Rails.application.routes.draw do
    get "login", to: "sessions#new", as: "login"
    post "sessions", to: "sessions#create", as: "sessions"
    post "logout", to: "sessions#destroy", as: "logout"
-  # get "/login", to: "sessions#new", as: "login"
-  # post "/sessions", to: "sessions#create", as: "sessions"
-  # post "/logout", to: "sessions"
+
 end
