@@ -1,8 +1,18 @@
 <h1>Login!</h1>
 
+<ul>
 <% if flash[:errors] %>
-  <%= flash[:errors] %>
+  <%  flash[:errors].each do |e| %>
+     <li><%= e %></li>
+  <% end %>
 <% end %>
+</ul>
+
+<ul>
+  <% if session[:user_id] == User.last.id %>
+  <li>Thank you for signing up, please enter your credentials below. </li>
+  <% end %>
+</ul>
 <%= form_tag sessions_path do %>
   <%= label_tag "Username" %>
   <%= text_field_tag :username %>

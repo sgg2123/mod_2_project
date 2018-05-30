@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :get_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorized, only: [:edit]
 
   def welcome
 
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
 
     @user = User.create(user_params)
     if @user.valid?
-    redirect_to @user
+    redirect_to login_path
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to signup_path
@@ -23,15 +24,31 @@ class UsersController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
+    if current_user != @user
+
+      redirect_to current_user
+    end
+    @languages = Language.all
   end
 
   def update
+    #byebug
+    @user.update(user_params)
+    if @user.valid?
+      redirect_to @user
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect_to current_user
+    end
   end
 
   def destroy
+    @user.destroy
+    redirect_to welcome_path
   end
 
   private
@@ -43,4 +60,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :username, :password, language_ids: [], company_ids: [])
   end
+
 end

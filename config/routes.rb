@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :languages
+  resources :companies
 
-  root 'users#welcome'
+  root 'users#welcome', as: "welcome"
 
    get "signup", to: "users#new", as: "signup"
    get "login", to: "sessions#new", as: "login"

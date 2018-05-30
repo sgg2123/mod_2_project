@@ -1,7 +1,10 @@
-<h1>Welcome to your personal page (linkedin 2.0)</h1>
- <h2> Your all-star name is <%= @user.name %> </h2>
- <h2>Your user name is <%=  @user.username %>  </h2>
+<h1>Welcome to the show page of <%= @user.name %></h1>
 
+<% if session[:user_id] && session[:user_id] == @user.id %>
+  <h1>Welcome <%= @user.name %>! </h1>
+  <% end %>
+
+<h2>Your Languages</h2>
  <% @user.languages.each do |l| %>
  <li><%= l.lang_name%></li>
  <% end  %>
