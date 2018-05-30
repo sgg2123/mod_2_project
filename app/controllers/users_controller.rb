@@ -16,7 +16,8 @@ class UsersController < ApplicationController
 
     @user = User.create(user_params)
     if @user.valid?
-    redirect_to login_path
+      session[:user_id] = @user.id
+      redirect_to login_path
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to signup_path
@@ -29,14 +30,12 @@ class UsersController < ApplicationController
 
   def edit
     if current_user != @user
-
       redirect_to current_user
     end
     @languages = Language.all
   end
 
   def update
-    #byebug
     @user.update(user_params)
     if @user.valid?
       redirect_to @user
