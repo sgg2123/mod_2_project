@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :user_languages
   has_many :languages, through: :user_languages
-  has_many :user_companies
-  has_many :companies, through: :user_companies
+  has_many :user_jobs
+  has_many :jobs, through: :user_jobs
 
   has_secure_password
 
