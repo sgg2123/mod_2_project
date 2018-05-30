@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_204812) do
+ActiveRecord::Schema.define(version: 2018_05_29_181343) do
 
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "company_languages", force: :cascade do |t|
-    t.integer "company_id"
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "company_name"
+    t.text "description"
+    t.string "redirect_url"
+    t.integer "listing_id"
     t.integer "language_id"
   end
 
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2018_05_29_204812) do
     t.text "fields_of_application"
   end
 
-  create_table "user_companies", force: :cascade do |t|
+  create_table "user_jobs", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "company_id"
+    t.integer "job_id"
   end
 
   create_table "user_languages", force: :cascade do |t|
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2018_05_29_204812) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "password_digest"
     t.string "username"
+    t.string "password_digest"
   end
 
 end
