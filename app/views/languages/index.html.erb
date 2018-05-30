@@ -1,9 +1,4 @@
-<% if !logged_in? %>
 <h1>Most Common Programming Languages of Today</h1>
-<% end %>
-<% if logged_in? %>
-<h1>Programming Languages of the Languages you selected. </h1>
-<% end %>
 
 <% @languages.each do |language| %>
 <h3> <%= link_to language.lang_name, language %>  </h3>
