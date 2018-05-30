@@ -9,8 +9,10 @@
 </ul>
 
 <ul>
-  <% if session[:user_id] == User.last.id %>
+  <% if @users.length > 0  %>
+    <% if session[:user_id] == User.last.id %>
   <li>Thank you for signing up, please enter your credentials below. </li>
+    <% end %>
   <% end %>
 </ul>
 <%= form_tag sessions_path do %>
