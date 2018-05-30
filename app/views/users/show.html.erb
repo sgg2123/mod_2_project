@@ -1,5 +1,3 @@
-<h1>Welcome to the show page of <%= @user.name %></h1>
-
 <% if session[:user_id] && session[:user_id] == @user.id %>
   <h1>Welcome <%= @user.name %>! </h1>
   <% end %>
@@ -10,3 +8,6 @@
     <ul> <%= l.description %> </ul>
    </li>
  <% end  %>
+
+<%= link_to "Edit Your Profile", edit_user_path %> <br>
+<%= link_to "See all languages", languages_path %>
