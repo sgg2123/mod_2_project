@@ -1,0 +1,4 @@
+<h1>Jobs matching your criteria</h1>
+<%= form_for @job do |f| %>
+  <%= f.collection_check_boxes :job_id, @jobs, :id, :title %>
+<% end %>

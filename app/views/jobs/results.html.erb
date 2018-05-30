@@ -1,0 +1,14 @@
+<h1>Here are your results:</h1>
+<ul>
+  <% @job_results.each do |job| %>
+    <li>Company: <%= job[:company_name] %></li>
+    <ul>
+      <li>Title: <%= job[:title] %></li>
+      <li>Description: <%= job[:description] %></li>
+      <li>URL: <a href="<%= job[:redirect_url] %>" target="_blank">See details</a></li>
+      <br><br>
+    </ul>
+  <% end %>
+</ul>
+
+<%= link_to "Search again", search_path %>

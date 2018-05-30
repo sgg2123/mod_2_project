@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :languages
-  resources :jobs
+  resources :jobs, except: [:create, :new, :show]
 
   root 'users#welcome', as: "welcome"
 
@@ -11,5 +11,10 @@ Rails.application.routes.draw do
    get "login", to: "sessions#new", as: "login"
    post "sessions", to: "sessions#create", as: "sessions"
    post "logout", to: "sessions#destroy", as: "logout"
+
+   get "jobs/search", to: "jobs#search", as: "search"
+   post "jobs", to: "jobs#results", as: "results"
+   # get "jobs/results", to: "jobs#results", as: "results"
+   # post "jobs/results", to: "jobs#results", as: "post_results"
 
 end

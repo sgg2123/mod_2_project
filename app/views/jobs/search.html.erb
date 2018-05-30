@@ -1,0 +1,5 @@
+<h1>Select a language to view jobs.</h1>
+<%= form_for @job do |f| %>
+  <%= f.collection_select :language_id, Language.all, :id, :lang_name %>
+  <%= f.submit "Search"%>
+<% end %>
