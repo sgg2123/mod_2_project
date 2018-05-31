@@ -1,4 +1,8 @@
-<h1>Jobs matching your criteria</h1>
-<%= form_for @job do |f| %>
-  <%= f.collection_check_boxes :job_id, @jobs, :id, :title %>
-<% end %>
+<h1><%= @job.company_name %></h1>
+<ul>
+  <li>Title: <%= @job.title %></li>
+  <li>Description: <%= @job.description %></li>
+  <li>URL: <a href="<%= @job.redirect_url %>" target="_blank">See details</a></li>
+</ul>
+
+<%= link_to "Job Search", search_path %>

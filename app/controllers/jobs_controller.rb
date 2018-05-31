@@ -9,21 +9,29 @@ class JobsController < ApplicationController
     #   @languages = Language.all
     # end
     #
-    # def create
-    #   @job = Job.create(job_params)
-    #   redirect_to @job
-    # end
+    def create
+      if Job.find_by(listing_id: job_params[:listing_id], language_id: job_params[:language_id])
+        @job = Job.find_by(listing_id: job_params[:listing_id], language_id: job_params[:language_id])
+      else
+        @job = Job.create(job_params)
+      end
+      current_user.jobs << @job
+    end
 
     def search
       @languages = Language.all
     end
 
+    def show
+    end
+    
     def results
       @language = params[:language]
       @pg_num = params[:page]
       @job_results = Job.job_search(@pg_num, @language)
       @count = Job.pg_count(@language)/10 + 1
       @mean = Job.mean(@language)
+      @job = Job.new
     end
 
 

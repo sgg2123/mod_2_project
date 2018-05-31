@@ -56,7 +56,7 @@ class Job < ActiveRecord::Base
 
       listing_hash[:redirect_url] = is_nil?(listing["redirect_url"])
 
-      listing_hash[:id] = is_nil?(listing["id"])
+      listing_hash[:listing_id] = is_nil?(listing["id"])
 
       listing_array << listing_hash
     end
