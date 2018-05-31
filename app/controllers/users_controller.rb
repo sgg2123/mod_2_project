@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:errors] = @user.errors.full_messages
-      redirect_to current_user
+      redirect_to edit_user_path
     end
   end
 
