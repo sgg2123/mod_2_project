@@ -20,10 +20,12 @@ class JobsController < ApplicationController
     end
 
     def results
-      language = params[:language]
-      @job_results = Job.job_search(language)
-      @count = Job.pg_count(language)/10.0
-      @mean = Job.mean(language)
+      # byebug
+      @language = params[:language]
+      @pg_num = params[:page]
+      @job_results = Job.job_search(@pg_num, @language)
+      @count = Job.pg_count(@language)/10
+      @mean = Job.mean(@language)
     end
 
 
