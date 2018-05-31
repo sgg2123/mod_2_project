@@ -1,5 +1,5 @@
 <h1>Select a language to view jobs.</h1>
-<%= form_for @job do |f| %>
-  <%= f.collection_select :language_id, Language.all, :id, :lang_name %>
-  <%= f.submit "Search"%>
+<% counter = 0 %>
+<% @languages.each do |language| %>
+  <%= counter += 1 %>. <%= link_to language.lang_name, "/jobs/?language=#{language.lang_name}" %><br>
 <% end %>
