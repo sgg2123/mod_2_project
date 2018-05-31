@@ -8,6 +8,23 @@
 <h3>Jobs Available (est. 2016): <%= @language.jobs_available %> </h3>
 
 <h3>Resources to learn this language:  </h3>
+<ul>
+  <% if @language.video %>
+  <li>Video: <a href="<%= @language.video %>" target="_blank">Tutorial For Beginners</a> </li>
+  <% end %>
+  <% if @language.blog && @language.lang_name != "SQL" %>
+  <li>Blog: <a href="<%= @language.blog %>" target="_blank">Blogs</a> </li>
+  <% end %>
+  <% if @language.course %>
+  <li>Course: <a href="<%= @language.course %>" target="_blank">Course</a> </li>
+  <% end %>
+  <% if @language.book %>
+  <li>Book: <a href="<%= @language.book %>" target="_blank">Book</a> </li>
+  <% end %>
+  <% if @language.school != nil %>
+  <li>School: <a href="<%= @language.school %>" target="_blank">School</a> </li>
+  <% end %>
+</ul>
 
 
 
@@ -17,7 +34,6 @@
 
 
 
-
-<h5>If you want to go back to see all languages</h5>
-<%= link_to "All languages", languages_path %> <br>
-<%= link_to "Back to profile", current_user %>
+<h5>More Options Below<h5>
+<li><%= link_to "All languages", languages_path %></li>
+<li><%= link_to "Back to profile", current_user %></li>
