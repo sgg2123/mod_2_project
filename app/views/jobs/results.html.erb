@@ -1,7 +1,8 @@
 <h1>Here are your results:</h1>
+<p>Average Salary: $<%= @mean %></p>
 <ul>
   <% @job_results.each do |job| %>
-    <li>Company: <%= job[:company_name] %></li>
+    <li><strong>Company: <%= job[:company_name] %></strong></li>
     <ul>
       <li>Title: <%= job[:title] %></li>
       <li>Description: <%= job[:description] %></li>
@@ -10,5 +11,6 @@
     </ul>
   <% end %>
 </ul>
+
 
 <%= link_to "Search again", search_path %>

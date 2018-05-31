@@ -15,12 +15,15 @@ class JobsController < ApplicationController
     # end
 
     def search
+      @languages = Language.all
       @job = Job.new
     end
 
     def results
-      language = Language.find(job_params["language_id"]).lang_name
+      language = params[:language]
       @job_results = Job.job_search(language)
+      @count = Job.pg_count(language)/10.0
+      @mean = Job.mean(language)
     end
 
 
@@ -40,7 +43,10 @@ class JobsController < ApplicationController
     end
 
     def job_params
-      params.require(:job).permit(:title, :company_name, :description, :redirect_url, :listing_id, :language_id)
+      params.require(:job).permit(:title, :company_name, :description, :redirect_url, :listing_id, :language_id, :language)
     end
 
+    def pages
+      Job.job_search(language)
+    end
 end
