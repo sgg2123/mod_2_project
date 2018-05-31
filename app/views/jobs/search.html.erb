@@ -1,5 +1,5 @@
-<h1>Select a language to view jobs.</h1>
+<h1>Select a language to view developer jobs:</h1>
 <% counter = 0 %>
 <% @languages.each do |language| %>
-  <%= counter += 1 %>. <%= link_to language.lang_name, "/jobs/?language=#{language.lang_name}" %><br>
+  <%= counter += 1 %>. <%= link_to language.lang_name, "/jobs/?language=#{language.lang_name}&page=1" %><br>
 <% end %>

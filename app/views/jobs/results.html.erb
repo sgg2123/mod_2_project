@@ -13,7 +13,7 @@
 </ul>
 <% @pg_num = 1 %>
 <% @count.times do %>
-  <%= link_to @pg_num, "/jobs/?language=#{@language}/?page=#{@pg_num}" %>
+  <%= link_to @pg_num, "/jobs/?language=#{@language}&page=#{@pg_num}" %>
   <% @pg_num += 1 %>
 <% end %>
 

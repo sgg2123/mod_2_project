@@ -62,8 +62,4 @@ class Job < ActiveRecord::Base
     end
   listing_array
   end
-  # until pg_num >= data["count"]/10.0 + 1
-  #   pg_num += 1
-  # end
-
 end

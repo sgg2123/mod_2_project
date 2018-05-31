@@ -16,15 +16,13 @@ class JobsController < ApplicationController
 
     def search
       @languages = Language.all
-      @job = Job.new
     end
 
     def results
-      # byebug
       @language = params[:language]
       @pg_num = params[:page]
       @job_results = Job.job_search(@pg_num, @language)
-      @count = Job.pg_count(@language)/10
+      @count = Job.pg_count(@language)/10 + 1
       @mean = Job.mean(@language)
     end
 
