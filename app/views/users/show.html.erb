@@ -2,11 +2,21 @@
   <h1>Welcome <%= @user.name %>! </h1>
   <% end %>
 
-<h2>Your Languages</h2>
- <% @user.languages.each do |l| %>
- <li><%= link_to l.lang_name, l%> <br>
-    <ul> <%= l.description %> </ul>
-   </li>
- <% end  %>
-<%= link_to "Edit Your Profile", edit_user_path %> <br>
-<%= link_to "See all languages", languages_path %>
+  <h2>Your Languages:</h2>
+  <% @user.languages.each do |l| %>
+    <li><%= link_to l.lang_name, l%><br>
+    <ul><%= l.description %></ul>
+    </li>
+  <% end  %>
+
+  <h2>Your Saved Jobs:</h2>
+
+    <% @user.jobs.each do |job| %>
+      <li><%= job.company_name %> | <%= link_to job.title, job %></li>
+    <% end %>
+
+
+
+  <%= link_to "Edit Your Profile", edit_user_path %><br>
+  <%= link_to "See All Languages", languages_path %><br>
+  <%= link_to "Search Jobs", search_path %>
