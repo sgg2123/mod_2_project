@@ -8,14 +8,19 @@
       <li>Description: <%= job[:description] %></li>
       <li>URL: <a href="<%= job[:redirect_url] %>" target="_blank">See details</a></li>
 
-      <%= form_for @job, url: {action: "create"} do |f| %>
-        <%= f.hidden_field :company_name, :value => job[:company_name] %>
-        <%= f.hidden_field :title, :value => job[:title] %>
-        <%= f.hidden_field :description, :value => job[:description] %>
-        <%= f.hidden_field :redirect_url, :value => job[:redirect_url] %>
-        <%= f.hidden_field :listing_id, :value => job[:listing_id] %>
-        <%= f.hidden_field :language_id, :value => Language.find_by(lang_name: @language).id %>
-        <%= f.submit "Save Job"%>
+      <% displayed_job = Job.find_by(listing_id: job[:listing_id]) %>
+      <% if current_user.jobs.include?(displayed_job)%>
+      <%= "Already Saved!" %>
+      <% else %>
+        <%= form_for @job, url: {action: "create"} do |f| %>
+          <%= f.hidden_field :company_name, :value => job[:company_name] %>
+          <%= f.hidden_field :title, :value => job[:title] %>
+          <%= f.hidden_field :description, :value => job[:description] %>
+          <%= f.hidden_field :redirect_url, :value => job[:redirect_url] %>
+          <%= f.hidden_field :listing_id, :value => job[:listing_id] %>
+          <%= f.hidden_field :language_id, :value => Language.find_by(lang_name: @language).id %>
+          <%= f.submit "Save Job"%>
+        <% end %>
       <% end %>
       <br><br>
     </ul>
@@ -24,7 +29,7 @@
 <div>
 <% @pg_num = 1 %>
 <% @count.times do %>
-  <%= link_to @pg_num, "/jobs/results/?language=#{@language}&page=#{@pg_num}" %>
+  <%= link_to @pg_num, "/jobs/results/?#{{:language => @language}.to_query}&page=#{@pg_num}" %> 
   <% @pg_num += 1 %>
 <% end %>
 

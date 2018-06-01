@@ -24,9 +24,9 @@ class JobsController < ApplicationController
 
     def show
     end
-    
+
     def results
-      @language = params[:language]
+      @language = URI.decode(params[:language])
       @pg_num = params[:page]
       @job_results = Job.job_search(@pg_num, @language)
       @count = Job.pg_count(@language)/10 + 1
