@@ -21,6 +21,7 @@
     </ul>
   <% end %>
 </ul>
+<div>
 <% @pg_num = 1 %>
 <% @count.times do %>
   <%= link_to @pg_num, "/jobs/results/?language=#{@language}&page=#{@pg_num}" %>
@@ -28,3 +29,23 @@
 <% end %>
 
 <%= link_to "Search again", search_path %>
+</div>
+<style>
+  body {
+    background-image: url("http://kb4images.com/images/plain-background-images/36161486-plain-background-images.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  html {
+    height: 225%;
+  }
+
+  ul {
+    background-color: rgba(140, 140, 140, .6);
+  }
+
+  div {
+    background-color: rgba(170, 170, 170, 0.75);
+    font-size: 20px;
+  }
+</style>

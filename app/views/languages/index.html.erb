@@ -4,5 +4,28 @@
 <h3> <%= link_to language.lang_name, language %>  </h3>
 <ul><%= language.description %> </ul>
 <% end %>
+<div>
+<%= link_to "Search Jobs by Language", search_path %>
+</div>
 
-<%= link_to "Search Jobs", search_path %>
+<style>
+  body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Z5_wojJ_Sc8PI-FoeVI7gV0sDNDgtK7XVz0lASzB9q3cDB2oDg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  html {
+    height: 140%;
+  }
+
+  h3, ul {
+    background-color: rgba(170, 170, 170, 0.8);
+    padding: 1px 1px 1px 1px;
+    margin: 0px 0px 0px;
+  }
+  div {
+    font-size: 25px;
+    background-color: rgba(180, 180, 180, 0.9);
+  }
+</style>
