@@ -11,7 +11,7 @@
 
       <% displayed_job = Job.find_by(listing_id: job[:listing_id]) %>
       <% if current_user.jobs.include?(displayed_job)%>
-      <%= "Already Saved!" %>
+        <%= "Already Saved!" %>
       <% else %>
         <%= form_for @job, url: {action: "create"} do |f| %>
           <%= f.hidden_field :company_name, :value => job[:company_name] %>
@@ -31,7 +31,7 @@
 <div>
 <% @pg_num = 1 %>
 <% @count.times do %>
-  <%= link_to @pg_num, "/jobs/results/?#{{:language => @language}.to_query}&page=#{@pg_num}" %> 
+  <%= link_to @pg_num, "/jobs/results/?#{{:language => @language}.to_query}&page=#{@pg_num}" %>
   <% @pg_num += 1 %>
 <% end %>
 

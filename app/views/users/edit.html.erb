@@ -1,4 +1,4 @@
-<h1>Editing Page</h1>
+<h2>Editing Page</h2>
 
 <ul>
 <% if flash[:errors] %>
@@ -22,9 +22,9 @@
   <%= f.submit "Edit" %>
 <% end %>
 
-<%= form_tag user_path(@user), method: :delete do %>
+<!-- <%= form_tag user_path(@user), method: :delete do %>
 <%= submit_tag "Delete" %>
-<% end %>
+<% end %> -->
 
 <style>
   body {
@@ -32,6 +32,7 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
+
 
   html {
     height: 100%;
