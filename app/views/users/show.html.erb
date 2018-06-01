@@ -1,38 +1,44 @@
 <% if session[:user_id] && session[:user_id] == @user.id %>
-  <h1>Welcome <%= @user.name %>! </h1>
+  <h2 id="name">Welcome <%= @user.name %>! </h2>
   <% end %>
 
-<h2>Your Languages:</h2>
+<h2>Your Languages</h2>
 <% @user.languages.each do |l| %>
   <li><%= link_to l.lang_name, l%><br>
   <ul><%= l.description %></ul>
   </li>
 <% end  %>
 
-<h2>Your Saved Jobs:</h2>
+<h2>Your Saved Jobs</h2>
 
   <% @user.jobs.each do |job| %>
-    <li><%= job.company_name %> | <%= link_to job.title, job %></li>
+    <li><%= job.company_name %> | <%= link_to job.title, job %> <br>
+    <br></li>
   <% end %>
 
-
+<br>
+<br>
 <div>
-<%= link_to "Edit Your Profile", edit_user_path %><br>
-<%= link_to "See All Languages", languages_path %><br>
+<%= link_to "Edit Your Profile", edit_user_path %> |
+<%= link_to "See All Languages", languages_path %> |
 <%= link_to "Search Jobs", search_path %>
 <div>
 
 <style>
   li {
-    background-color: rgba(130, 130, 130, .7);
+    background-color: rgba(50, 50, 50, .3);
     margin: 0px 0px 0px 0px;
-    padding: 10px 10px 10px;
+    padding: 1px 1px 1px;
     font-size: 20px;
 
   }
 
+  h2 {
+    text-align: center;
+  }
+
   body {
-    background-image: url("https://www.resortvacationstogo.com/images/city_images/new%20york%20city.jpg");
+    background-image: url("http://kb4images.com/images/plain-background-images/36161486-plain-background-images.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
@@ -41,11 +47,17 @@
     height: 120%;
   }
 
-  h2 {
-    background-color: rgba(90, 175, 175, 0.6)
+  #name {
+    font-size: 30px;
   }
 
   div {
-    background-color: rgba(175, 175, 175, 0.9)
+    background-color: rgba(175, 175, 175, 0.9);
+    font-size: 20px;
   }
+
+  ul {
+
+  }
+
 </style>

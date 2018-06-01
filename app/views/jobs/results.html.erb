@@ -1,9 +1,10 @@
-<h1>Here are your results:</h1>
+<h2>Job Search Results</h2>
 <p>Average Salary: $<%= @mean %></p>
 <ul>
   <% @job_results.each do |job| %>
-    <li><strong>Company: <%= job[:company_name] %></strong></li>
+    <li><strong>Company: <%= job[:company_name] %></strong></li> <br>
     <ul>
+      <br>
       <li>Title: <%= job[:title] %></li>
       <li>Description: <%= job[:description] %></li>
       <li>URL: <a href="<%= job[:redirect_url] %>" target="_blank">See details</a></li>
@@ -17,8 +18,9 @@
         <%= f.hidden_field :language_id, :value => Language.find_by(lang_name: @language).id %>
         <%= f.submit "Save Job"%>
       <% end %>
-      <br><br>
+      <br>
     </ul>
+    <br>
   <% end %>
 </ul>
 <div>
@@ -31,6 +33,11 @@
 <%= link_to "Search again", search_path %>
 </div>
 <style>
+
+  h2 {
+    text-align: center;
+    font-size: 28px;
+  }
   body {
     background-image: url("http://kb4images.com/images/plain-background-images/36161486-plain-background-images.jpg");
     background-repeat: no-repeat;
@@ -47,5 +54,16 @@
   div {
     background-color: rgba(170, 170, 170, 0.75);
     font-size: 20px;
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  strong {
+    font-weight: bold;
+    font-size: 22px;
   }
 </style>

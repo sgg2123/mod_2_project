@@ -1,31 +1,48 @@
-<h1>Most Common Programming Languages of Today</h1>
+<h2>Most Common Programming Languages of Today</h2>
 
 <% @languages.each do |language| %>
 <h3> <%= link_to language.lang_name, language %>  </h3>
-<ul><%= language.description %> </ul>
+<li><%= language.description %> </li>
+<br>
 <% end %>
+<br>
 <div>
 <%= link_to "Search Jobs by Language", search_path %>
 </div>
 
+
 <style>
+
+  h2 {
+    font-size: 35px;
+    text-align: center;
+  }
   body {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Z5_wojJ_Sc8PI-FoeVI7gV0sDNDgtK7XVz0lASzB9q3cDB2oDg");
+    background-image: url("http://kb4images.com/images/plain-background-images/36161486-plain-background-images.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-  }
+    }
+    html {
+      height: 135%;
+    }
 
-  html {
-    height: 140%;
-  }
-
-  h3, ul {
+  h3, li {
     background-color: rgba(170, 170, 170, 0.8);
-    padding: 1px 1px 1px 1px;
+    padding: 1px 1px 1px 11px;
     margin: 0px 0px 0px;
   }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  li {
+    font-size: 20px;
+  }
+
   div {
     font-size: 25px;
     background-color: rgba(180, 180, 180, 0.9);
+    font-weight: bold;
   }
 </style>

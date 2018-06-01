@@ -1,4 +1,4 @@
-<h1 id="signup">Sign Up Page</h1>
+<h2>Sign Up Page</h2>
 
 <ul>
 <% if flash[:errors] %>
@@ -7,7 +7,7 @@
   <% end %>
 <% end %>
 </ul>
-
+<div>
 <%= form_for @user do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -21,10 +21,19 @@
   <%= f.collection_check_boxes :language_ids, @languages, :id, :lang_name %>
   <%= f.submit "Sign Up" %>
 <% end %>
-
+</div>
 
 
 <style>
+  h2 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  div {
+    text-align: center;
+  }
+
   body {
     background-image: url("http://res.cloudinary.com/simpleview/image/upload/v1519670032/clients/newyorkcity/Empire_State_Building_Observatory_manhattan_nyc_Julienne_Schaer_055_3f39d2d1-61fd-4d1b-b931-8590bf4c63a7.jpg")
   }

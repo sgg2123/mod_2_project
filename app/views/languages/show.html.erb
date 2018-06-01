@@ -1,70 +1,74 @@
-<h1> <%= @language.lang_name %> Page </h1>
+<h2> <%= @language.lang_name %> Page </h2>
 
-<h2>The language you selected was <%= @language.lang_name %></h2>
+<h3 id=1>The language you selected was <%= @language.lang_name %></h3>
+<h3 id=1>History:
+  <li> <%= @language.history %> </li> </h3>
+<h3 id=1>Description:
+  <li> <%= @language.description %> </li> </h3>
+<h3 id=1>Average Salary (est. 2016): $<%= @language.average_salary %> </h3>
+<h3 id=1>Jobs Available (est. 2016): <%= @language.jobs_available %> </h3>
 
-<h3>History:  <%= @language.history %> </h3>
-<h3>Description: <%= @language.description %> </h3>
-<h3>Average Salary (est. 2016): $<%= @language.average_salary %> </h3>
-<h3>Jobs Available (est. 2016): <%= @language.jobs_available %> </h3>
-
-<h3>Resources to learn this language:  </h3>
+<h6>Resources to learn this language:  </h6>
 <ul>
   <% if @language.video %>
-  <li>Video: <a href="<%= @language.video %>" target="_blank">Tutorial For Beginners</a> </li>
+  <li>Video: <a href="<%= @language.video %>" target="_blank"> <%= @language.lang_name %> tutorial video </a> </li> <br>
   <% end %>
   <% if @language.blog && @language.lang_name != "SQL" %>
-  <li>Blog: <a href="<%= @language.blog %>" target="_blank">Blogs</a> </li>
+  <li>Blog: <a href="<%= @language.blog %>" target="_blank"> <%= @language.lang_name %> Blogs </a> </li> <br>
   <% end %>
   <% if @language.course %>
-  <li>Course: <a href="<%= @language.course %>" target="_blank">Course</a> </li>
+  <li>Course: <a href="<%= @language.course %>" target="_blank"> <%= @language.lang_name %> Course </a> </li> <br>
   <% end %>
   <% if @language.book %>
-  <li>Book: <a href="<%= @language.book %>" target="_blank">Book</a> </li>
+  <li>Book: <a href="<%= @language.book %>" target="_blank">Book for <%= @language.lang_name %></a> </li> <br>
   <% end %>
   <% if @language.school != nil %>
-  <li>School: <a href="<%= @language.school %>" target="_blank">School</a> </li>
+  <li>School: <a href="<%= @language.school %>" target="_blank">School to learn <%= @language.lang_name %></a> </li>
   <% end %>
 </ul>
 
 
 <div>
-<h5>More Options Below<h5>
-<li><%= link_to "All languages", languages_path %></li>
-<li><%= link_to "Back to profile", current_user %></li>
+<%= link_to "All languages", languages_path %> |
+<%= link_to "Back to profile", current_user %>
 </div>
 
 <style>
-  h1 {
-    background-color: grey;
+  h2 {
+    font-size: 35px;
     color: black;
   }
 
   body {
-    background-image: url("http://www.ifmanyc.org/wp-content/uploads/2014/11/East_River_8x10-5_RGB-wmark.jpg");
+    background-image: url("http://kb4images.com/images/plain-background-images/36161486-plain-background-images.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-  }
-
-  html {
-    height: 200%;
-  }
+    }
+    html {
+      height: 140%;
+    }
 
   ul {
-    background-color: rgba(135, 135, 135, 0.7);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 22px;
   }
 
   div {
-    background-color: rgba(135, 135, 135, 0.7);
+    font-size: 22px;
+    font-weight: bold;
   }
 
   h5 {
-    font-size: 25px;
-  }
-  h3 {
-    font-size: 25px;
+    font-size: 22px;
     background-color: rgba(135, 135, 135, 0.7);
   }
+  #1  {
+    font-size: 20px;
+    background-color: rgba(135, 135, 135, 0.7);
+  }
+
+  h6 {
+      background-color: rgba(135, 135, 135, 0.7);
+    }
 
 </style>
