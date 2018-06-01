@@ -24,21 +24,44 @@ class Job < ActiveRecord::Base
   end
 
   def self.pg_count(language)
-    url = "https://api.adzuna.com:443/v1/api/jobs/us/search/1?app_id=189edd09&app_key=1feefbefc8cdd067528cf11b48d913fd&what=#{language}&what_and=developer&where=10010&distance=25&max_days_old=120&full_time=1"
+    if language == "C++"
+      uri_lang = plus_helper(language)
+    else
+      uri_lang = url_helper(language)
+    end
+    url = "https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=189edd09&app_key=1feefbefc8cdd067528cf11b48d913fd&what=#{uri_lang}&what_and=developer&where=10010&distance=25&max_days_old=120&full_time=1"
 
     data = make_request(url)
     data["count"]
   end
 
   def self.mean(language)
-    url = "https://api.adzuna.com:443/v1/api/jobs/us/search/1?app_id=189edd09&app_key=1feefbefc8cdd067528cf11b48d913fd&what=#{language}&what_and=developer&where=10010&distance=25&max_days_old=120&full_time=1"
+    if language == "C++"
+      uri_lang = plus_helper(language)
+    else
+      uri_lang = url_helper(language)
+    end
+    url = "https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=189edd09&app_key=1feefbefc8cdd067528cf11b48d913fd&what=#{uri_lang}&what_and=developer&where=10010&distance=25&max_days_old=120&full_time=1"
 
     data = make_request(url)
     data["mean"]
   end
 
+  def self.url_helper(language)
+    URI.encode(language)
+  end
+
+  def self.plus_helper(language)
+    language.gsub("+", "%2B")
+  end
+
   def self.job_search(pg_num = 1, language)
-    url = "https://api.adzuna.com:443/v1/api/jobs/us/search/#{pg_num}?app_id=189edd09&app_key=1feefbefc8cdd067528cf11b48d913fd&what=#{language}&what_and=developer&where=10010&distance=25&max_days_old=120&full_time=1"
+    if language == "C++"
+      uri_lang = plus_helper(language)
+    else
+      uri_lang = url_helper(language)
+    end
+    url = "https://api.adzuna.com/v1/api/jobs/us/search/#{pg_num}?app_id=189edd09&app_key=1feefbefc8cdd067528cf11b48d913fd&what=#{uri_lang}&what_and=developer&where=10010&distance=25&max_days_old=120&full_time=1"
 
     data = make_request(url)
 

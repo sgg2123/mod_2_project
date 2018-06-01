@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :get_user, only: [:show, :edit, :update, :destroy]
+  before_action :get_user, only: [:show, :edit, :update, :destroy, :delete_job]
   before_action :authorized, only: [:edit]
 
   def welcome
@@ -49,6 +49,15 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to welcome_path
   end
+
+  # def delete_job
+  #   byebug
+  #   @user.jobs.delete
+  #   <%= form_tag delete_job_path, method: :delete do %>
+  #     <% hidden_field_tag 'job_id', "#{job.id}" %>
+  #     <%= submit_tag "Delete Job" %>
+  #   <% end %>
+  # end
 
   private
 

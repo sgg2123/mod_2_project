@@ -2,7 +2,14 @@
 <% counter = 0 %>
 <div>
 <% @languages.each do |language| %>
-  <%= counter += 1 %>. <%= link_to language.lang_name, "/jobs/results/?language=#{language.lang_name}&page=1" %><br>
+  <% if language.lang_name == "C++" %>
+    <% alt_lang = "C%2B%2B" %>
+  <% elsif language.lang_name == "C#" %>
+    <% alt_lang = URI.encode(language.lang_name) %>
+  <% else %>
+    <% alt_lang = language.lang_name %>
+  <% end %>
+  <%= counter += 1 %>. <%= link_to language.lang_name, "/jobs/results/?language="+"#{alt_lang}"+"&page=1" %><br>
 <% end %>
 </div>
 

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :languages
 
   root 'users#welcome', as: "welcome"
+  # delete 'users/:id/delete_job', to: "users#delete_job", as: "delete_job"
 
   get "signup", to: "users#new", as: "signup"
   get "login", to: "sessions#new", as: "login"
