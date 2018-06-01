@@ -1,18 +1,20 @@
-<h1><%= @job.company_name %></h1>
+
 <ul>
-  <li>Title: <%= @job.title %></li>
-  <li>Description: <%= @job.description %></li>
+  <h2><%= @job.company_name %></h2>
+  <li>Title: <%= @job.title %></li> <br>
+  <li>Description: <%= @job.description %></li> <br>
   <li>URL: <a href="<%= @job.redirect_url %>" target="_blank">See details</a></li>
 </ul>
 
-<%= link_to "Job Search", search_path %>
-
-
 <style>
+
+  h2 {
+    text-align: center;
+  }
   ul {
     font-size: 25px;
     font-family: "Times New Roman";
-    font-weight: bold;
+    background-color: rgba(140, 140, 140, 0.5);
   }
   body {
     background-image: url("http://www.ifmanyc.org/wp-content/uploads/2014/11/East_River_8x10-5_RGB-wmark.jpg");
@@ -23,5 +25,11 @@
   html {
     height: 100%;
   }
+
+  div {
+    font-size: 22px;
+    background-color: rgba(140, 140, 140, 0.5)
+  }
+
 
 </style>
