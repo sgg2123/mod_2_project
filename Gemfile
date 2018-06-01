@@ -65,3 +65,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry'
 gem 'rest-client'
 gem 'json'
+gem 'rspec'
+gem 'rspec-expectations'
