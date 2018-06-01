@@ -2,19 +2,21 @@
   <h2 id="name">Welcome <%= @user.name %>! </h2>
   <% end %>
 
+<% if @user.jobs.length > 0 %>
+  <h2>Your Saved Jobs</h2>
+  <% @user.jobs.each do |job| %>
+    <li><%= job.company_name %> | <%= link_to job.title, job %> <br>
+    <br></li>
+  <% end %>
+<% end %>
+
+
 <h2>Your Languages</h2>
 <% @user.languages.each do |l| %>
   <li><%= link_to l.lang_name, l%><br>
   <ul><%= l.description %></ul>
   </li>
 <% end  %>
-
-<h2>Your Saved Jobs</h2>
-
-  <% @user.jobs.each do |job| %>
-    <li><%= job.company_name %> | <%= link_to job.title, job %> <br>
-    <br></li>
-  <% end %>
 
 <br>
 <br>
