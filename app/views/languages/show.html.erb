@@ -1,12 +1,12 @@
 <h2> <%= @language.lang_name %> Page </h2>
 
-<h3 id=1>The language you selected was <%= @language.lang_name %></h3>
-<h3 id=1>History:
+<h3 id='hi'>The language you selected was <%= @language.lang_name %></h3>
+<h3 id='hi'>History:
   <li> <%= @language.history %> </li> </h3>
-<h3 id=1>Description:
+<h3 id='hi'>Description:
   <li> <%= @language.description %> </li> </h3>
-<h3 id=1>Average Salary (est. 2016): $<%= @language.average_salary %> </h3>
-<h3 id=1>Jobs Available (est. 2016): <%= @language.jobs_available %> </h3>
+<h3 id='hi'>Average Salary (est. 2016): $<%= @language.average_salary %> </h3>
+<h3 id='hi'>Jobs Available (est. 2016): <%= @language.jobs_available %> </h3>
 
 <h6>Resources to learn this language:  </h6>
 <ul>
@@ -36,7 +36,8 @@
 <style>
   h2 {
     font-size: 35px;
-    color: black;
+    color: red;
+    font-style: italic;
   }
 
   body {
@@ -62,9 +63,10 @@
     font-size: 22px;
     background-color: rgba(135, 135, 135, 0.7);
   }
-  #1  {
+  #hi  {
     font-size: 20px;
-    background-color: rgba(135, 135, 135, 0.7);
+    color: rgba(100, 100, 0, 1);
+    background-color: rgba(135, 135, 135, 0.4);
   }
 
   h6 {

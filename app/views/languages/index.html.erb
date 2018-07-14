@@ -1,7 +1,7 @@
 <h2>Most Common Programming Languages of Today</h2>
 
 <% @languages.each do |language| %>
-<h3> <%= link_to language.lang_name, language %>  </h3>
+<h3 id="header"> <%= link_to language.lang_name, language %>  </h3>
 <li><%= language.description %> </li>
 <br>
 <% end %>
@@ -16,24 +16,28 @@
   h2 {
     font-size: 35px;
     text-align: center;
+    font-style: italic;
+    color: darkblue;
   }
   body {
     background-image: url("http://kb4images.com/images/plain-background-images/36161486-plain-background-images.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100% 170%;
     }
     html {
       height: 135%;
     }
 
   h3, li {
-    background-color: rgba(170, 170, 170, 0.8);
+    background-color: rgba(170, 170, 170, 0.6);
     padding: 1px 1px 1px 11px;
     margin: 0px 0px 0px;
+    font-family: 'Gaegu', cursive;
   }
 
-  h3 {
+  #header {
     font-size: 26px;
+    font-family: 'Lato', sans-serif;
   }
 
   li {

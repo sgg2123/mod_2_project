@@ -1,14 +1,6 @@
 class JobsController < ApplicationController
     before_action :get_job, only: [:show, :edit, :update, :destroy]
 
-    # def index
-    # end
-    #
-    # def new
-    #   @job = Job.new
-    #   @languages = Language.all
-    # end
-    #
     def create
       if Job.find_by(listing_id: job_params[:listing_id], language_id: job_params[:language_id])
         @job = Job.find_by(listing_id: job_params[:listing_id], language_id: job_params[:language_id])
@@ -32,6 +24,7 @@ class JobsController < ApplicationController
       @count = Job.pg_count(@language)/10 + 1
       @mean = Job.mean(@language)
       @job = Job.new
+
     end
 
 

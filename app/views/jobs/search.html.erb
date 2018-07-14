@@ -9,7 +9,7 @@
   <% else %>
     <% alt_lang = language.lang_name %>
   <% end %>
-  <%= counter += 1 %>. <%= link_to language.lang_name, "/jobs/results/?language="+"#{alt_lang}"+"&page=1" %><br>
+  <%= counter += 1 %>. <%= link_to language.lang_name, "/jobs/results/?language=#{alt_lang}&page=1" %><br>
 <% end %>
 </div>
 
@@ -18,6 +18,8 @@
 
   h2 {
     font-size: 35px;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: rgba(100, 100, 0, 0.7)
   }
   body {
     background-image: url("http://www.seekgif.com/uploads/2017/06/07-plain-backgrounds-dark-blue-checks-web-background-hd-245-jpg--34.jpeg");
@@ -31,5 +33,8 @@
 
 div {
     font-size: 25px;
+    font-family: 'Gaegu', cursive;
+    color: green;
+
   }
 </style>

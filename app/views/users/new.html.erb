@@ -1,6 +1,6 @@
 <h2>Sign Up Page</h2>
 
-<ul>
+<ul id="errors">
 <% if flash[:errors] %>
     <% flash[:errors].each do |e| %>
     <li> <%= e %> </li>
@@ -28,6 +28,8 @@
   h2 {
     font-size: 40px;
     text-align: center;
+    color: green;
+    font-family: 'Gaegu', cursive;
   }
 
   div {
@@ -36,6 +38,16 @@
 
   body {
     background-image: url("http://res.cloudinary.com/simpleview/image/upload/v1519670032/clients/newyorkcity/Empire_State_Building_Observatory_manhattan_nyc_Julienne_Schaer_055_3f39d2d1-61fd-4d1b-b931-8590bf4c63a7.jpg")
+  }
+
+  h3 {
+    color: blue;
+    font-family: 'Gloria Hallelujah', cursive;
+  }
+
+  #errors {
+    color: red;
+    font-family: 'Gloria Hallelujah', cursive;
   }
 
 </style>

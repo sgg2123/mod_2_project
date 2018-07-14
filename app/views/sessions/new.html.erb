@@ -1,6 +1,6 @@
 <h2>Login</h2>
 
-<ul>
+<ul id="errors">
 <% if flash[:errors] %>
   <%  flash[:errors].each do |e| %>
      <li><%= e %></li>
@@ -8,7 +8,7 @@
 <% end %>
 </ul>
 
-<ul>
+<ul id="newUser">
   <% if @users.length > 0 %>
     <% if session[:user_id] == User.last.id %>
   Thank you for signing up, please enter your credentials below.
@@ -26,6 +26,16 @@
 </div>
 
 <style>
+  #errors {
+    color: red;
+    font-family: 'Gloria Hallelujah', cursive;
+  }
+
+  #newUser {
+    color: green;
+    font-family: 'Gloria Hallelujah', cursive;
+  }
+
   body {
     background-image: url("http://www.simonlee.online/wp-content/uploads/2015/05/mountainpath.jpg");
     background-repeat: no-repeat;
@@ -39,6 +49,7 @@
   h2 {
     font-size: 50px;
     text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
   }
 
   div {

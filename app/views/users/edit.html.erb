@@ -1,13 +1,14 @@
-<h2>Editing Page</h2>
+<h2>Edit <%= current_user.username %>'s Profile</h2>
 
-<ul>
+
+<ul id="flash">
 <% if flash[:errors] %>
     <% flash[:errors].each do |e| %>
     <li> <%= e %> </li>
   <% end %>
 <% end %>
 </ul>
-
+<div id="form">
 <%= form_for @user do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -17,24 +18,41 @@
   <%= f.password_field :password %>
   <!-- <%= f.label :password_confirmation  %>
   <%= f.password_field :password_confirmation %> -->
-  <h3>If you already know what language you are interested in, or have exposure with, please select from the following:</h3>
+  <h3 id="sentence">If you already know what language you are interested in, or have exposure with, please select from the following:</h3>
   <%= f.collection_check_boxes :language_ids, @languages, :id, :lang_name %>
   <%= f.submit "Edit" %>
 <% end %>
+</div>
 
 <!-- <%= form_tag user_path(@user), method: :delete do %>
 <%= submit_tag "Delete" %>
 <% end %> -->
 
 <style>
+  h2 {
+    color: blue;
+    font-family: 'Lobster', cursive;
+  }
+
   body {
-    background-image: url("https://i0.wp.com/wallpaper-gallery.net/images/plain-background-images/plain-background-images-12.jpg?resize=806%2C453");
+    background-image: url("https://media-cdn.tripadvisor.com/media/photo-s/0d/f5/0d/a6/nyc-at-night-bus-tour.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
 
+  #sentence {
+  color: green;
+  }
+
+  #form {
+    color: red;
+  }
 
   html {
     height: 100%;
+  }
+
+  #flash {
+    color: pink;
   }
 </style>
